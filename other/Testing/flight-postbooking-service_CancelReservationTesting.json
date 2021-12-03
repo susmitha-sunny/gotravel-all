@@ -1,0 +1,18 @@
+flight-postbooking-service : Cancel Reservation Testing
+
+http://localhost:8080/flight-postbooking-service/cancelreservation
+1. success
+Request
+http://localhost:8080/flight-postbooking-service/cancelreservation/BACDAB
+Response
+Reservation cancelled successfully
+
+2.failure
+Request
+http://localhost:8080/flight-postbooking-service/cancelreservation/AA
+Response
+{
+    "exception": "com.gotravel.flightpostbookingservice.exception.ValueNotFoundException",
+    "errorMessage": "Exception encountered in postbooking service - Cancellation failed",
+    "statusCode": 404
+}

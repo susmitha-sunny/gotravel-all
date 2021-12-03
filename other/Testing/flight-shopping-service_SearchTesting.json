@@ -1,0 +1,401 @@
+flight-shopping-service : Search Testing
+
+http://localhost:8080/flight-shopping-service/search
+
+1. Schedule not found
+Request
+{
+    "departureAirport":"NYC",
+    "arrivalAirport":"LAX",
+    "departureDate":"2021-12-02",
+    "tripType":"OW", 
+    "adultCount":1,
+    "childCount":0,
+    "infantCount":0
+}
+Response
+{
+    "exception": "com.gotravel.flightshoppingservice.exception.ValueNotFoundException",
+    "errorMessage": "Exception encountered in shopping service - No schedules found",
+    "statusCode": 404
+}
+
+2. OW Success
+Request
+{
+    "departureAirport":"LAS",
+    "arrivalAirport":"LAX",
+    "departureDate":"2021-12-02",
+    "tripType":"OW", 
+    "adultCount":1,
+    "childCount":0,
+    "infantCount":0
+}
+Response
+{
+    "flightScheduleList": [
+        {
+            "scheduleId": 1,
+            "flight": {
+                "flightId": 1,
+                "airline": {
+                    "airlineId": 1,
+                    "airlineName": "United Airlines",
+                    "iataCode": "UA",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "U320",
+                "businessSeatCount": 10,
+                "economySeatCount": 30,
+                "meal": "BOTH"
+            },
+            "departureAirport": "LAS",
+            "arrivalAirport": "LAX",
+            "departureTime": "13:00:00",
+            "arrivalTime": "15:00:00",
+            "duration": "02:00:00",
+            "fare": 428,
+            "days": "0101010"
+        },
+        {
+            "scheduleId": 7,
+            "flight": {
+                "flightId": 4,
+                "airline": {
+                    "airlineId": 2,
+                    "airlineName": "Lufthansa",
+                    "iataCode": "LH",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "L001",
+                "businessSeatCount": 10,
+                "economySeatCount": 30,
+                "meal": "BOTH"
+            },
+            "departureAirport": "LAS",
+            "arrivalAirport": "LAX",
+            "departureTime": "08:00:00",
+            "arrivalTime": "10:20:00",
+            "duration": "02:20:00",
+            "fare": 258,
+            "days": "0101010"
+        },
+        {
+            "scheduleId": 11,
+            "flight": {
+                "flightId": 6,
+                "airline": {
+                    "airlineId": 3,
+                    "airlineName": "Delta",
+                    "iataCode": "DL",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "D333",
+                "businessSeatCount": 20,
+                "economySeatCount": 60,
+                "meal": "NONE"
+            },
+            "departureAirport": "LAS",
+            "arrivalAirport": "LAX",
+            "departureTime": "05:00:00",
+            "arrivalTime": "06:50:00",
+            "duration": "01:50:00",
+            "fare": 650,
+            "days": "0101010"
+        },
+        {
+            "scheduleId": 19,
+            "flight": {
+                "flightId": 10,
+                "airline": {
+                    "airlineId": 5,
+                    "airlineName": "Emirates",
+                    "iataCode": "EK",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "E355",
+                "businessSeatCount": 10,
+                "economySeatCount": 30,
+                "meal": "BOTH"
+            },
+            "departureAirport": "LAS",
+            "arrivalAirport": "LAX",
+            "departureTime": "21:00:00",
+            "arrivalTime": "23:30:00",
+            "duration": "02:30:00",
+            "fare": 250,
+            "days": "0101010"
+        }
+    ],
+    "returnFlightScheduleList": [],
+    "departureAirport": "LAS",
+    "arrivalAirport": "LAX",
+    "departureDate": "2021-12-02",
+    "returnDate": null,
+    "tripType": "OW",
+    "adultCount": 1,
+    "childCount": 0,
+    "infantCount": 0
+}
+
+3. Missing Departure Date in Search Request
+Request
+{
+    "departureAirport":"LAS",
+    "arrivalAirport":"LAX",
+    "tripType":"OW", 
+    "adultCount":1,
+    "childCount":0,
+    "infantCount":0
+}
+Response
+{
+    "exception": "com.gotravel.flightshoppingservice.exception.InvalidRequestException",
+    "errorMessage": "Exception encountered in shopping service - Missing Departure Date",
+    "statusCode": 404
+}
+
+4. RT success
+Request
+{
+    "departureAirport":"LAS",
+    "arrivalAirport":"LAX",
+    "departureDate":"2021-12-02",
+    "returnDate":"2021-12-03",
+    "tripType":"RT", 
+    "adultCount":1,
+    "childCount":0,
+    "infantCount":0
+}
+Response
+{
+    "flightScheduleList": [
+        {
+            "scheduleId": 1,
+            "flight": {
+                "flightId": 1,
+                "airline": {
+                    "airlineId": 1,
+                    "airlineName": "United Airlines",
+                    "iataCode": "UA",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "U320",
+                "businessSeatCount": 10,
+                "economySeatCount": 30,
+                "meal": "BOTH"
+            },
+            "departureAirport": "LAS",
+            "arrivalAirport": "LAX",
+            "departureTime": "13:00:00",
+            "arrivalTime": "15:00:00",
+            "duration": "02:00:00",
+            "fare": 428,
+            "days": "0101010"
+        },
+        {
+            "scheduleId": 7,
+            "flight": {
+                "flightId": 4,
+                "airline": {
+                    "airlineId": 2,
+                    "airlineName": "Lufthansa",
+                    "iataCode": "LH",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "L001",
+                "businessSeatCount": 10,
+                "economySeatCount": 30,
+                "meal": "BOTH"
+            },
+            "departureAirport": "LAS",
+            "arrivalAirport": "LAX",
+            "departureTime": "08:00:00",
+            "arrivalTime": "10:20:00",
+            "duration": "02:20:00",
+            "fare": 258,
+            "days": "0101010"
+        },
+        {
+            "scheduleId": 11,
+            "flight": {
+                "flightId": 6,
+                "airline": {
+                    "airlineId": 3,
+                    "airlineName": "Delta",
+                    "iataCode": "DL",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "D333",
+                "businessSeatCount": 20,
+                "economySeatCount": 60,
+                "meal": "NONE"
+            },
+            "departureAirport": "LAS",
+            "arrivalAirport": "LAX",
+            "departureTime": "05:00:00",
+            "arrivalTime": "06:50:00",
+            "duration": "01:50:00",
+            "fare": 650,
+            "days": "0101010"
+        },
+        {
+            "scheduleId": 19,
+            "flight": {
+                "flightId": 10,
+                "airline": {
+                    "airlineId": 5,
+                    "airlineName": "Emirates",
+                    "iataCode": "EK",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "E355",
+                "businessSeatCount": 10,
+                "economySeatCount": 30,
+                "meal": "BOTH"
+            },
+            "departureAirport": "LAS",
+            "arrivalAirport": "LAX",
+            "departureTime": "21:00:00",
+            "arrivalTime": "23:30:00",
+            "duration": "02:30:00",
+            "fare": 250,
+            "days": "0101010"
+        }
+    ],
+    "returnFlightScheduleList": [
+        {
+            "scheduleId": 2,
+            "flight": {
+                "flightId": 1,
+                "airline": {
+                    "airlineId": 1,
+                    "airlineName": "United Airlines",
+                    "iataCode": "UA",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "U320",
+                "businessSeatCount": 10,
+                "economySeatCount": 30,
+                "meal": "BOTH"
+            },
+            "departureAirport": "LAX",
+            "arrivalAirport": "LAS",
+            "departureTime": "21:00:00",
+            "arrivalTime": "23:00:00",
+            "duration": "02:00:00",
+            "fare": 500,
+            "days": "1010100"
+        },
+        {
+            "scheduleId": 8,
+            "flight": {
+                "flightId": 4,
+                "airline": {
+                    "airlineId": 2,
+                    "airlineName": "Lufthansa",
+                    "iataCode": "LH",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "L001",
+                "businessSeatCount": 10,
+                "economySeatCount": 30,
+                "meal": "BOTH"
+            },
+            "departureAirport": "LAX",
+            "arrivalAirport": "LAS",
+            "departureTime": "18:10:00",
+            "arrivalTime": "20:30:00",
+            "duration": "02:20:00",
+            "fare": 400,
+            "days": "1010100"
+        },
+        {
+            "scheduleId": 12,
+            "flight": {
+                "flightId": 6,
+                "airline": {
+                    "airlineId": 3,
+                    "airlineName": "Delta",
+                    "iataCode": "DL",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "D333",
+                "businessSeatCount": 20,
+                "economySeatCount": 60,
+                "meal": "NONE"
+            },
+            "departureAirport": "LAX",
+            "arrivalAirport": "LAS",
+            "departureTime": "10:10:00",
+            "arrivalTime": "12:00:00",
+            "duration": "01:50:00",
+            "fare": 600,
+            "days": "1010100"
+        },
+        {
+            "scheduleId": 20,
+            "flight": {
+                "flightId": 10,
+                "airline": {
+                    "airlineId": 5,
+                    "airlineName": "Emirates",
+                    "iataCode": "EK",
+                    "logo": null,
+                    "airlineStatus": "ACTIVE"
+                },
+                "flightNumber": "E355",
+                "businessSeatCount": 10,
+                "economySeatCount": 30,
+                "meal": "BOTH"
+            },
+            "departureAirport": "LAX",
+            "arrivalAirport": "LAS",
+            "departureTime": "13:00:00",
+            "arrivalTime": "15:00:00",
+            "duration": "02:00:00",
+            "fare": 585,
+            "days": "1010100"
+        }
+    ],
+    "departureAirport": "LAS",
+    "arrivalAirport": "LAX",
+    "departureDate": "2021-12-02",
+    "returnDate": "2021-12-03",
+    "tripType": "RT",
+    "adultCount": 1,
+    "childCount": 0,
+    "infantCount": 0
+}
+
+5. No return flight
+Request
+{
+    "departureAirport":"LAS",
+    "arrivalAirport":"LAX",
+    "departureDate":"2021-12-02",
+    "returnDate":"2021-12-04",
+    "tripType":"RT", 
+    "adultCount":1,
+    "childCount":0,
+    "infantCount":0
+}
+Response
+{
+    "exception": "com.gotravel.flightshoppingservice.exception.ValueNotFoundException",
+    "errorMessage": "Exception encountered in shopping service - No schedules found for return flight",
+    "statusCode": 404
+}
+
+Note: Add test for filtering inactive airlines

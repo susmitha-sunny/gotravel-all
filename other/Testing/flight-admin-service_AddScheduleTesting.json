@@ -1,0 +1,72 @@
+flight-admin-service : Add Schedule Testing
+
+http://localhost:8080/flight-admin-service/addschedule
+
+1. Success
+Request
+{
+    "flight": {
+        "flightId": 11,
+        "airline": {
+            "airlineId": 6,
+            "airlineName": "Qatar Airways",
+            "iataCode": "QA",
+            "logo": null,
+            "airlineStatus": "ACTIVE"
+        },
+        "flightNumber": "Q222",
+        "businessSeatCount": 10,
+        "economySeatCount": 30,
+        "meal": "BOTH"
+        },
+        "departureAirport": "COK",
+        "arrivalAirport": "BGL",
+        "departureTime": "13:00:00",
+        "arrivalTime": "15:00:00",
+        "duration": "02:00:00",
+        "fare": 100,
+        "days": "0101010"
+}
+Response
+{
+    "scheduleId": 25,
+    "flight": {
+        "flightId": 11,
+        "airline": {
+            "airlineId": 6,
+            "airlineName": "Qatar Airways",
+            "iataCode": "QA",
+            "logo": null,
+            "airlineStatus": "ACTIVE"
+        },
+        "flightNumber": "Q222",
+        "businessSeatCount": 10,
+        "economySeatCount": 30,
+        "meal": "BOTH"
+    },
+    "departureAirport": "COK",
+    "arrivalAirport": "BGL",
+    "departureTime": "13:00:00",
+    "arrivalTime": "15:00:00",
+    "duration": "02:00:00",
+    "fare": 100,
+    "days": "0101010"
+}
+
+2.Invalid request
+Request
+{
+    "departureAirport": "COK",
+    "arrivalAirport": "BGL",
+    "departureTime": "13:00:00",
+    "arrivalTime": "15:00:00",
+    "duration": "02:00:00",
+    "fare": 100,
+    "days": "0101010"
+}
+Response
+{
+    "exception": "org.springframework.dao.DataIntegrityViolationException",
+    "errorMessage": "Exception encountered in admin service - could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement",
+    "statusCode": 404
+}

@@ -1,0 +1,48 @@
+flight-booking-service : Seat Testing
+
+http://localhost:8080/flight-booking-service/reservedseat
+
+1. OW success
+Request
+{
+    "tripType" : "OW",
+    "flightDetails": {
+        "flightId": 1,
+        "departureDate": "2021-12-10",
+        "departureTime": "13:00"
+    }
+}
+Response
+{
+    "seatList": [
+        28,
+        31
+    ],
+    "returnSeatList": []
+}
+
+2. RT success
+Request
+{
+    "tripType" : "RT",
+    "flightDetails": {
+        "flightId": 1,
+        "departureDate": "2021-12-10",
+        "departureTime": "13:00"
+    },
+    "returnFlightDetails": {
+        "flightId": 7,
+        "departureDate": "2021-12-20",
+        "departureTime": "15:00"
+    }
+}
+Response
+{
+    "seatList": [
+        28,
+        31
+    ],
+    "returnSeatList": [
+        14
+    ]
+}

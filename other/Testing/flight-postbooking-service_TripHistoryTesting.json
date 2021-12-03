@@ -1,0 +1,158 @@
+flight-postbooking-service : Trip history Testing
+
+http://localhost:8080/flight-postbooking-service/triphistory
+
+1. Success
+Request
+http://localhost:8080/flight-postbooking-service/triphistory/saralin@mail.com
+Response
+[
+    {
+        "reservation": {
+            "bookingId": 2,
+            "pnr": "BACDAB",
+            "emailId": "saralin@mail.com",
+            "phone": "23456789",
+            "bookingStatus": "ACTIVE",
+            "departureAirport": "COK",
+            "arrivalAirport": "BGL",
+            "tripType": "OW",
+            "totalFare": 300,
+            "adultCount": 2,
+            "childCount": 0,
+            "infantCount": 0,
+            "departureDate": "2021-12-27",
+            "returnDate": null,
+            "flightId": 11,
+            "returnFlightId": 0,
+            "flightNumber": "Q222",
+            "returnFlightNumber": null,
+            "airlineName": "Qatar Airways",
+            "returnAirlineName": null,
+            "iataCode": "QA",
+            "returnIataCode": null,
+            "departureTime": "13:00:00",
+            "returnDepartureTime": null,
+            "arrivalTime": "15:00:00",
+            "returnArrivalTime": null,
+            "duration": "02:00:00",
+            "returnDuration": null
+        },
+        "passengersList": [
+            {
+                "passengerId": 2,
+                "ticketNumber": "BACDAB1101",
+                "pnr": "BACDAB",
+                "firstName": "Sara",
+                "middleName": null,
+                "lastName": "Lin",
+                "gender": "F",
+                "passengerType": "ADT",
+                "dob": "1996-10-10",
+                "seatNumber": 28,
+                "returnSeatNumber": 0,
+                "mealPreference": "VEG"
+            },
+            {
+                "passengerId": 3,
+                "ticketNumber": "BACDAB1102",
+                "pnr": "BACDAB",
+                "firstName": "Oliver",
+                "middleName": null,
+                "lastName": "Lin",
+                "gender": "M",
+                "passengerType": "ADT",
+                "dob": "1990-12-10",
+                "seatNumber": 29,
+                "returnSeatNumber": 0,
+                "mealPreference": "VEG"
+            }
+        ]
+    },
+    {
+        "reservation": {
+            "bookingId": 3,
+            "pnr": "DDEDAA",
+            "emailId": "saralin@mail.com",
+            "phone": "23456789",
+            "bookingStatus": "ACTIVE",
+            "departureAirport": "COK",
+            "arrivalAirport": "BGL",
+            "tripType": "OW",
+            "totalFare": 300,
+            "adultCount": 2,
+            "childCount": 1,
+            "infantCount": 0,
+            "departureDate": "2021-12-20",
+            "returnDate": null,
+            "flightId": 11,
+            "returnFlightId": 0,
+            "flightNumber": "Q222",
+            "returnFlightNumber": null,
+            "airlineName": "Qatar Airways",
+            "returnAirlineName": null,
+            "iataCode": "QA",
+            "returnIataCode": null,
+            "departureTime": "13:00:00",
+            "returnDepartureTime": null,
+            "arrivalTime": "15:00:00",
+            "returnArrivalTime": null,
+            "duration": "02:00:00",
+            "returnDuration": null
+        },
+        "passengersList": [
+            {
+                "passengerId": 4,
+                "ticketNumber": "DDEDAA1101",
+                "pnr": "DDEDAA",
+                "firstName": "Sara",
+                "middleName": null,
+                "lastName": "Lin",
+                "gender": "F",
+                "passengerType": "ADT",
+                "dob": "1996-10-10",
+                "seatNumber": 28,
+                "returnSeatNumber": 0,
+                "mealPreference": "VEG"
+            },
+            {
+                "passengerId": 5,
+                "ticketNumber": "DDEDAA1102",
+                "pnr": "DDEDAA",
+                "firstName": "Oliver",
+                "middleName": null,
+                "lastName": "Lin",
+                "gender": "M",
+                "passengerType": "ADT",
+                "dob": "1990-12-10",
+                "seatNumber": 29,
+                "returnSeatNumber": 0,
+                "mealPreference": "VEG"
+            },
+            {
+                "passengerId": 6,
+                "ticketNumber": "DDEDAA1103",
+                "pnr": "DDEDAA",
+                "firstName": "Tom",
+                "middleName": null,
+                "lastName": "Lin",
+                "gender": "M",
+                "passengerType": "CHD",
+                "dob": "2006-11-05",
+                "seatNumber": 30,
+                "returnSeatNumber": 0,
+                "mealPreference": "ANY"
+            }
+        ]
+    }
+]
+
+2.Failure
+Request
+http://localhost:8080/flight-postbooking-service/triphistory/sara@mail.com
+Response
+{
+    "exception": "com.gotravel.flightpostbookingservice.exception.ValueNotFoundException",
+    "errorMessage": "Exception encountered in postbooking service - No reservations found for given email id",
+    "statusCode": 404
+}

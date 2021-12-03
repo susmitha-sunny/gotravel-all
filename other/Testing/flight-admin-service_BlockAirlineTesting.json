@@ -1,0 +1,35 @@
+flight-admin-service : Block Airline Testing
+
+http://localhost:8080/flight-admin-service/blockairline
+
+1. Success
+Request
+{
+    "airlineName": "Qatar Airways"
+}
+Response
+Airline Qatar Airways blocked successfully
+
+2.Failure invalid airline
+Request
+{
+    "airlineName": "Jet Airways"
+}
+Response
+{
+    "exception": "com.gotravel.flightadminservice.exception.ValueNotFoundException",
+    "errorMessage": "Exception encountered in admin service - Airline could not be blocked",
+    "statusCode": 404
+}
+
+3. Empty Request
+Request
+{
+
+}
+Response
+{
+    "exception": "com.gotravel.flightadminservice.exception.ValueNotFoundException",
+    "errorMessage": "Exception encountered in admin service - Airline could not be blocked",
+    "statusCode": 404
+}

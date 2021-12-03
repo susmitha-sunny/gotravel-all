@@ -1,0 +1,32 @@
+AWS Documentation
+
+1) AWS RDS
+-> Created RDS MySQL instance "database-1" with configured credentials
+-> In security group added inbound rule for my ip
+-> Connected to the instance via MySQL Workbench
+-> Imported tables and data from local MySQL database
+-> Updated application.properties file with AWS RDS information of all microservices that previously accessed local DB
+
+2) AWS S3
+-> Created an S3 bucket "gotravelbucket"
+
+3) AWS EC2
+-> Created new EC2 instance (t2.micro) "EC2.GoTravel"
+-> Save the KeyPair
+-> Updated inbound rules for allowing my ip
+-> Connected to the instance using SSH through Git Bash
+-> Added necessary features like Java
+-> Created jar for the applications that need to be deployed to this instance and uploaded it to S3 bucket.
+-> Added the jar to the instance using S3 url and started it inside EC2
+
+4) AWS Lambda
+-> Created a Java 8 lambda "sendCancellationMail"
+-> Created a SpringBoot Application "flight-mail-service" that triggers an email stating reservation cancellation to ethereal mailbox
+-> Created thin-shaded jar for the application so that it contains the dependencies
+-> Uploaded jar to S3
+-> Inside lambda, uploaded the jar by giving the S3 url
+-> Updated the handler path 
+-> Added API Gateway trigger "sendCancellationMail-API" for triggering lambda whenever user cancels flight from dashboard
+
+
+

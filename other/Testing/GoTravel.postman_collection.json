@@ -1,0 +1,552 @@
+{
+	"info": {
+		"_postman_id": "8578db9f-a86e-45aa-b3ee-650af3666986",
+		"name": "GoTravel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "LoginRequest",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"password1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAdminById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "GoTravelAuthBearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEiLCJleHAiOjE2MzY5MDI4MDUsImlhdCI6MTYzNjg4NDgwNX0.pXw3MXo2gxDi4CE3jKax8pIrW44GK-taSmBukmsGJriYB_xIP88W7_xYwF8yvhMRzLNcNCc5Jhl5fTuMaNVhcA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/admin/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"password1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-admin-service/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-admin-service",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Security Test [not valid]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "GoTravelAuthBearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEiLCJleHAiOjE2MzY5MDI4MDUsImlhdCI6MTYzNjg4NDgwNX0.pXw3MXo2gxDi4CE3jKax8pIrW44GK-taSmBukmsGJriYB_xIP88W7_xYwF8yvhMRzLNcNCc5Jhl5fTuMaNVhcA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/testsecurity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"testsecurity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Coupon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"DISCOUNT25\",\r\n    \"discountPercent\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-admin-service/addcoupon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-admin-service",
+								"addcoupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Airline",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"airlineName\": \"Qatar Airways\",\r\n    \"iataCode\": \"QR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-admin-service/addairline",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-admin-service",
+								"addairline"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Block Airline",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "GoTravelAuthBearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEiLCJleHAiOjE2MzY5MDI4MDUsImlhdCI6MTYzNjg4NDgwNX0.pXw3MXo2gxDi4CE3jKax8pIrW44GK-taSmBukmsGJriYB_xIP88W7_xYwF8yvhMRzLNcNCc5Jhl5fTuMaNVhcA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"airlineName\": \"Jet Airways\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-admin-service/blockairline",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-admin-service",
+								"blockairline"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Schedule - Object",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "GoTravelAuthBearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEiLCJleHAiOjE2MzY5MDI4MDUsImlhdCI6MTYzNjg4NDgwNX0.pXw3MXo2gxDi4CE3jKax8pIrW44GK-taSmBukmsGJriYB_xIP88W7_xYwF8yvhMRzLNcNCc5Jhl5fTuMaNVhcA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"flight\": {\r\n        \"flightId\": 11,\r\n        \"airline\": {\r\n            \"airlineId\": 6,\r\n            \"airlineName\": \"Qatar Airways\",\r\n            \"iataCode\": \"QA\",\r\n            \"logo\": null,\r\n            \"airlineStatus\": \"ACTIVE\"\r\n        },\r\n        \"flightNumber\": \"Q222\",\r\n        \"businessSeatCount\": 10,\r\n        \"economySeatCount\": 30,\r\n        \"meal\": \"BOTH\"\r\n        },\r\n        \"departureAirport\": \"COK\",\r\n        \"arrivalAirport\": \"BGL\",\r\n        \"departureTime\": \"13:00:00\",\r\n        \"arrivalTime\": \"15:00:00\",\r\n        \"duration\": \"02:00:00\",\r\n        \"fare\": 100,\r\n        \"days\": \"0101010\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-admin-service/addschedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-admin-service",
+								"addschedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Flight - Object",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "GoTravelAuthBearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEiLCJleHAiOjE2MzY5MDI4MDUsImlhdCI6MTYzNjg4NDgwNX0.pXw3MXo2gxDi4CE3jKax8pIrW44GK-taSmBukmsGJriYB_xIP88W7_xYwF8yvhMRzLNcNCc5Jhl5fTuMaNVhcA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"airline\": {\r\n        \"airlineId\": 6,\r\n        \"airlineName\": \"Qatar Airways\",\r\n        \"iataCode\": \"QA\",\r\n        \"logo\": null,\r\n        \"airlineStatus\": \"ACTIVE\"\r\n    },\r\n    \"flightNumber\": \"Q222\",\r\n    \"businessSeatCount\": 10,\r\n    \"economySeatCount\": 30,\r\n    \"meal\": \"BOTH\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-admin-service/addflight",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-admin-service",
+								"addflight"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shopping",
+			"item": [
+				{
+					"name": "SearchRequest",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"departureAirport\":\"LAS\",\r\n    \"arrivalAirport\":\"LAX\",\r\n    \"departureDate\":\"2021-12-09\",\r\n    \"returnDate\":\"2021-12-10\",\r\n    \"tripType\":\"RT\", \r\n    \"adultCount\":1,\r\n    \"childCount\":0,\r\n    \"infantCount\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-shopping-service/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-shopping-service",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FlightDetailsRequest",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scheduleId\":4,\r\n    \"departureDate\":\"2021-12-02\",\r\n    \"tripType\":\"OW\", \r\n    \"adultCount\":1,\r\n    \"childCount\":1,\r\n    \"infantCount\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-shopping-service/flightdetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-shopping-service",
+								"flightdetails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Coupon",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\" : \"SALE50\",\r\n    \"totalFare\" : 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-booking-service/coupon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-booking-service",
+								"coupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booking RT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"totalFare\": 658,\r\n    \"departureAirport\": \"LAS\",\r\n    \"arrivalAirport\": \"LAX\",\r\n    \"tripType\": \"RT\",\r\n    \"adultCount\":1,\r\n    \"childCount\":0,\r\n    \"infantCount\": 0,\r\n    \"email\": \"johnThomas@mail.com\",\r\n    \"phone\": \"923654567\",\r\n    \"flightDetails\": {\r\n       \"flightId\": 4,\r\n       \"flightNumber\": \"L001\",\r\n       \"airlineName\": \"Lufthansa\",\r\n       \"iataCode\": \"LH\",\r\n       \"departureDate\": \"2021-12-20\",\r\n       \"departureTime\": \"08:00:00\",\r\n        \"arrivalTime\": \"10:20:00\",\r\n        \"duration\": \"02:20:00\"\r\n    },\r\n    \"returnFlightDetails\": {\r\n       \"flightId\": 6,\r\n       \"flightNumber\": \"D333\",\r\n       \"airlineName\": \"Delta\",\r\n       \"iataCode\": \"DL\",\r\n       \"departureDate\": \"2021-12-23\",\r\n       \"departureTime\": \"10:10:00\",\r\n        \"arrivalTime\": \"12:00:00\",\r\n        \"duration\": \"01:50:00\"\r\n    },\r\n    \"passengerDetailsList\": [\r\n        {\r\n            \"firstName\": \"John\",\r\n            \"lastName\": \"Thomas\",\r\n            \"gender\": \"M\",\r\n            \"type\": \"ADT\",\r\n            \"dateOfBirth\": \"1986-05-10\",\r\n            \"seatNumber\": 18,\r\n            \"mealPreference\": \"VEG\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-booking-service/booking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-booking-service",
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booking OW",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"totalFare\": 300,\r\n    \"departureAirport\": \"COK\",\r\n    \"arrivalAirport\": \"BGL\",\r\n    \"tripType\": \"OW\",\r\n    \"adultCount\":2,\r\n    \"childCount\":1,\r\n    \"infantCount\": 0,\r\n    \"email\": \"saralin@mail.com\",\r\n    \"phone\": \"23456789\",\r\n    \"flightDetails\": {\r\n       \"flightId\": 11,\r\n       \"flightNumber\": \"Q222\",\r\n       \"airlineName\": \"Qatar Airways\",\r\n       \"iataCode\": \"QA\",\r\n       \"departureDate\": \"2021-12-20\",\r\n       \"departureTime\": \"13:00:00\",\r\n        \"arrivalTime\": \"15:00:00\",\r\n        \"duration\": \"02:00:00\"\r\n    },\r\n    \"passengerDetailsList\": [\r\n        {\r\n            \"firstName\": \"Sara\",\r\n            \"lastName\": \"Lin\",\r\n            \"gender\": \"F\",\r\n            \"type\": \"ADT\",\r\n            \"dateOfBirth\": \"1996-10-10\",\r\n            \"seatNumber\": 28,\r\n            \"mealPreference\": \"VEG\"\r\n        },\r\n        {\r\n            \"firstName\": \"Oliver\",\r\n            \"lastName\": \"Lin\",\r\n            \"gender\": \"M\",\r\n            \"type\": \"ADT\",\r\n            \"dateOfBirth\": \"1990-12-10\",\r\n            \"seatNumber\": 29,\r\n            \"mealPreference\": \"VEG\"\r\n        },\r\n        {\r\n            \"firstName\": \"Tom\",\r\n            \"lastName\": \"Lin\",\r\n            \"gender\": \"M\",\r\n            \"type\": \"CHD\",\r\n            \"dateOfBirth\": \"2006-11-05\",\r\n            \"seatNumber\": 30,\r\n            \"mealPreference\": \"ANY\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-booking-service/booking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-booking-service",
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reserved Seat",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tripType\" : \"RT\",\r\n    \"flightDetails\": {\r\n        \"flightId\": 1,\r\n        \"departureDate\": \"2021-12-10\",\r\n        \"departureTime\": \"13:00\"\r\n    },\r\n    \"returnFlightDetails\": {\r\n        \"flightId\": 7,\r\n        \"departureDate\": \"2021-12-20\",\r\n        \"departureTime\": \"15:00\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flight-booking-service/reservedseat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-booking-service",
+								"reservedseat"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PostBooking",
+			"item": [
+				{
+					"name": "Cancel Reservation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/flight-postbooking-service/cancelreservation/BACDABAA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-postbooking-service",
+								"cancelreservation",
+								"BACDABAA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve PNR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/flight-postbooking-service/retrievepnr/DDEDAA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-postbooking-service",
+								"retrievepnr",
+								"DDEDAA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trip History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/flight-postbooking-service/triphistory/saralin@mail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flight-postbooking-service",
+								"triphistory",
+								"saralin@mail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

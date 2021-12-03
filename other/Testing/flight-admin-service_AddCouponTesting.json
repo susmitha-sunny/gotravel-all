@@ -1,0 +1,54 @@
+flight-admin-service : Add Coupon Testing
+
+http://localhost:8080/flight-admin-service/addcoupon
+
+1. Request with duplicate id
+Request
+{
+    "couponId": 1,
+    "code": "DISCOUNT25",
+    "discountPercent": 25
+}
+Response
+{
+    "exception": "org.springframework.dao.DataIntegrityViolationException",
+    "errorMessage": "Exception encountered in admin service - could not execute statement; SQL [n/a]; constraint [coupon.PRIMARY]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement",
+    "statusCode": 404
+}
+
+2. success
+Request
+{
+    "code": "DISCOUNT25",
+    "discountPercent": 25
+}
+Response
+{
+    "couponId": 5,
+    "code": "DISCOUNT25",
+    "discountPercent": 25
+}
+
+Request
+{
+    "code": "NEWYEAR30",
+    "discountPercent": 30
+}
+Response
+{
+    "couponId": 6,
+    "code": "NEWYEAR30",
+    "discountPercent": 30
+}
+
+3. null discount
+Request
+{
+    "code": "NEWYEAR40"
+}
+Response
+{
+    "exception": "org.springframework.dao.DataIntegrityViolationException",
+    "errorMessage": "Exception encountered in admin service - could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement",
+    "statusCode": 404
+}

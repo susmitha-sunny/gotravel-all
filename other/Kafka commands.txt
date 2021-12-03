@@ -1,0 +1,26 @@
+Kafka commands
+
+In kafka -> bin -> windows -> Open Git Bash
+
+Start zookeeper
+./zookeeper-server-start.bat ./../../config/zookeeper.properties
+
+Start kafka
+./kafka-server-start.bat ./../../config/server.properties
+
+Create topic
+./kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic <topicname>
+
+Set producer to write to topic
+./kafka-console-producer.bat --broker-list localhost:9092 --topic flightcoupon
+
+Set consumer to read from topic
+ ./kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic flightcoupon --from-beginning
+ (from beginning reads all existing data in topic before consumer started)
+
+ Any number of consumers & producers can use topic at same timeframe
+
+ List all topics in kafka
+ ./kafka-topics.bat --list --zookeeper localhost:2181
+
+ 

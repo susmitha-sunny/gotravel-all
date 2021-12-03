@@ -1,0 +1,321 @@
+flight-booking-service : Booking Testing
+
+http://localhost:8080/flight-booking-service/book
+
+1. OW multipax success
+Request
+{
+    "totalFare": 300,
+    "departureAirport": "COK",
+    "arrivalAirport": "BGL",
+    "tripType": "OW",
+    "adultCount":2,
+    "childCount":1,
+    "infantCount": 0,
+    "email": "saralin@mail.com",
+    "phone": "23456789",
+    "flightDetails": {
+       "flightId": 11,
+       "flightNumber": "Q222",
+       "airlineName": "Qatar Airways",
+       "iataCode": "QA",
+       "departureDate": "2021-12-20",
+       "departureTime": "13:00:00",
+        "arrivalTime": "15:00:00",
+        "duration": "02:00:00"
+    },
+    "passengerDetailsList": [
+        {
+            "firstName": "Sara",
+            "lastName": "Lin",
+            "gender": "F",
+            "type": "ADT",
+            "dateOfBirth": "1996-10-10",
+            "seatNumber": 28,
+            "mealPreference": "VEG"
+        },
+        {
+            "firstName": "Oliver",
+            "lastName": "Lin",
+            "gender": "M",
+            "type": "ADT",
+            "dateOfBirth": "1990-12-10",
+            "seatNumber": 29,
+            "mealPreference": "VEG"
+        },
+        {
+            "firstName": "Tom",
+            "lastName": "Lin",
+            "gender": "M",
+            "type": "CHD",
+            "dateOfBirth": "2006-11-05",
+            "seatNumber": 30,
+            "mealPreference": "ANY"
+        }
+    ]
+}
+Response
+{
+    "reservation": {
+        "bookingId": 3,
+        "pnr": "DDEDAA",
+        "emailId": "saralin@mail.com",
+        "phone": "23456789",
+        "bookingStatus": "ACTIVE",
+        "departureAirport": "COK",
+        "arrivalAirport": "BGL",
+        "tripType": "OW",
+        "totalFare": 300,
+        "adultCount": 2,
+        "childCount": 1,
+        "infantCount": 0,
+        "departureDate": "2021-12-20",
+        "returnDate": null,
+        "flightId": 11,
+        "returnFlightId": 0,
+        "flightNumber": "Q222",
+        "returnFlightNumber": null,
+        "airlineName": "Qatar Airways",
+        "returnAirlineName": null,
+        "iataCode": "QA",
+        "returnIataCode": null,
+        "departureTime": "13:00:00",
+        "returnDepartureTime": null,
+        "arrivalTime": "15:00:00",
+        "returnArrivalTime": null,
+        "duration": "02:00:00",
+        "returnDuration": null
+    },
+    "passengersList": [
+        {
+            "passengerId": 4,
+            "ticketNumber": "DDEDAA1101",
+            "pnr": "DDEDAA",
+            "firstName": "Sara",
+            "middleName": null,
+            "lastName": "Lin",
+            "gender": "F",
+            "passengerType": "ADT",
+            "dob": "1996-10-10",
+            "seatNumber": 28,
+            "mealPreference": "VEG"
+        },
+        {
+            "passengerId": 5,
+            "ticketNumber": "DDEDAA1102",
+            "pnr": "DDEDAA",
+            "firstName": "Oliver",
+            "middleName": null,
+            "lastName": "Lin",
+            "gender": "M",
+            "passengerType": "ADT",
+            "dob": "1990-12-10",
+            "seatNumber": 29,
+            "mealPreference": "VEG"
+        },
+        {
+            "passengerId": 6,
+            "ticketNumber": "DDEDAA1103",
+            "pnr": "DDEDAA",
+            "firstName": "Tom",
+            "middleName": null,
+            "lastName": "Lin",
+            "gender": "M",
+            "passengerType": "CHD",
+            "dob": "2006-11-05",
+            "seatNumber": 30,
+            "mealPreference": "ANY"
+        }
+    ]
+}
+
+2. RT 1 ADT
+Request
+{
+    "totalFare": 658,
+    "departureAirport": "LAS",
+    "arrivalAirport": "LAX",
+    "tripType": "RT",
+    "adultCount":1,
+    "childCount":0,
+    "infantCount": 0,
+    "email": "johnThomas@mail.com",
+    "phone": "923654567",
+    "flightDetails": {
+       "flightId": 4,
+       "flightNumber": "L001",
+       "airlineName": "Lufthansa",
+       "iataCode": "LH",
+       "departureDate": "2021-12-20",
+       "departureTime": "08:00:00",
+        "arrivalTime": "10:20:00",
+        "duration": "02:20:00"
+    },
+    "returnFlightDetails": {
+       "flightId": 6,
+       "flightNumber": "D333",
+       "airlineName": "Delta",
+       "iataCode": "DL",
+       "departureDate": "2021-12-23",
+       "departureTime": "10:10:00",
+        "arrivalTime": "12:00:00",
+        "duration": "01:50:00"
+    },
+    "passengerDetailsList": [
+        {
+            "firstName": "John",
+            "lastName": "Thomas",
+            "gender": "M",
+            "type": "ADT",
+            "dateOfBirth": "1986-05-10",
+            "seatNumber": 18,
+            "mealPreference": "VEG"
+        }
+    ]
+}
+Response
+{
+    "reservation": {
+        "bookingId": 4,
+        "pnr": "DEBFAB",
+        "emailId": "johnThomas@mail.com",
+        "phone": "923654567",
+        "bookingStatus": "ACTIVE",
+        "departureAirport": "LAS",
+        "arrivalAirport": "LAX",
+        "tripType": "RT",
+        "totalFare": 658,
+        "adultCount": 1,
+        "childCount": 0,
+        "infantCount": 0,
+        "departureDate": "2021-12-20",
+        "returnDate": "2021-12-23",
+        "flightId": 4,
+        "returnFlightId": 6,
+        "flightNumber": "L001",
+        "returnFlightNumber": "D333",
+        "airlineName": "Lufthansa",
+        "returnAirlineName": "Delta",
+        "iataCode": "LH",
+        "returnIataCode": "DL",
+        "departureTime": "08:00:00",
+        "returnDepartureTime": "10:10:00",
+        "arrivalTime": "10:20:00",
+        "returnArrivalTime": "12:00:00",
+        "duration": "02:20:00",
+        "returnDuration": "01:50:00"
+    },
+    "passengersList": [
+        {
+            "passengerId": 7,
+            "ticketNumber": "DEBFAB1101",
+            "pnr": "DEBFAB",
+            "firstName": "John",
+            "middleName": null,
+            "lastName": "Thomas",
+            "gender": "M",
+            "passengerType": "ADT",
+            "dob": "1986-05-10",
+            "seatNumber": 18,
+            "mealPreference": "VEG"
+        }
+    ]
+}
+
+3. RT invalid request
+Request
+{
+    "totalFare": 658,
+    "departureAirport": "LAS",
+    "arrivalAirport": "LAX",
+    "tripType": "RT",
+    "adultCount":1,
+    "childCount":0,
+    "infantCount": 0,
+    "email": "johnThomas@mail.com",
+    "phone": "923654567",
+    "flightDetails": {
+       "flightId": 4,
+       "flightNumber": "L001",
+       "airlineName": "Lufthansa",
+       "iataCode": "LH",
+       "departureDate": "2021-12-20",
+       "departureTime": "08:00:00",
+        "arrivalTime": "10:20:00",
+        "duration": "02:20:00"
+    },
+    "passengerDetailsList": [
+        {
+            "firstName": "John",
+            "lastName": "Thomas",
+            "gender": "M",
+            "type": "ADT",
+            "dateOfBirth": "1986-05-10",
+            "seatNumber": 18,
+            "mealPreference": "VEG"
+        }
+    ]
+}
+Response
+{
+    "exception": "com.gotravel.flightbookingservice.exception.InvalidRequestException",
+    "errorMessage": "Exception encountered in booking service - Missing Return Flight Details",
+    "statusCode": 404
+}
+
+4. Invalid Request OW
+Request
+{
+    "totalFare": 300,
+    "tripType": "OW",
+    "adultCount":2,
+    "childCount":1,
+    "infantCount": 0,
+    "email": "saralin@mail.com",
+    "phone": "23456789",
+    "flightDetails": {
+       "flightId": 11,
+       "flightNumber": "Q222",
+       "airlineName": "Qatar Airways",
+       "iataCode": "QA",
+       "departureDate": "2021-12-20",
+       "departureTime": "13:00:00",
+        "arrivalTime": "15:00:00",
+        "duration": "02:00:00"
+    },
+    "passengerDetailsList": [
+        {
+            "firstName": "Sara",
+            "lastName": "Lin",
+            "gender": "F",
+            "type": "ADT",
+            "dateOfBirth": "1996-10-10",
+            "seatNumber": 28,
+            "mealPreference": "VEG"
+        },
+        {
+            "firstName": "Oliver",
+            "lastName": "Lin",
+            "gender": "M",
+            "type": "ADT",
+            "dateOfBirth": "1990-12-10",
+            "seatNumber": 29,
+            "mealPreference": "VEG"
+        },
+        {
+            "firstName": "Tom",
+            "lastName": "Lin",
+            "gender": "M",
+            "type": "CHD",
+            "dateOfBirth": "2006-11-05",
+            "seatNumber": 30,
+            "mealPreference": "ANY"
+        }
+    ]
+}
+Response
+{
+    "exception": "com.gotravel.flightbookingservice.exception.InvalidRequestException",
+    "errorMessage": "Exception encountered in booking service - Missing Departure Airport",
+    "statusCode": 404
+}

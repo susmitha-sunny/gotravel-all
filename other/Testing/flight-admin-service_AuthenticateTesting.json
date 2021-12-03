@@ -1,0 +1,40 @@
+flight-admin-service : Login Testing
+
+http://localhost:8080/flight-admin-service/authenticate
+
+1. Success
+Request
+{
+    "username": "admin1",
+    "password": "password1"
+}
+Response
+{
+    "jwttoken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEiLCJleHAiOjE2MzY5MDI4MDUsImlhdCI6MTYzNjg4NDgwNX0.pXw3MXo2gxDi4CE3jKax8pIrW44GK-taSmBukmsGJriYB_xIP88W7_xYwF8yvhMRzLNcNCc5Jhl5fTuMaNVhcA"}
+}
+
+2.Failure when password in mysql is not bcrypt
+Request
+{
+    "username": "admin2",
+    "password": "password2"
+}
+Response
+{
+    "exception": "com.gotravel.flightadminservice.exception.JwtException",
+    "errorMessage": "Exception encountered in admin service - INVALID_CREDENTIALS",
+    "statusCode": 404
+}
+
+3.Wrong credential
+Request
+{
+    "username": "admin1",
+    "password": "password"
+}
+Response
+{
+    "exception": "com.gotravel.flightadminservice.exception.JwtException",
+    "errorMessage": "Exception encountered in admin service - INVALID_CREDENTIALS",
+    "statusCode": 404
+}

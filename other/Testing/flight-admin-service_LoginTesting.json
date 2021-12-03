@@ -1,0 +1,42 @@
+flight-admin-service : Login Testing
+
+http://localhost:8080/flight-admin-service/login
+
+1. Wrong username and password
+Request
+{
+    "username":"123",
+    "password":"password1"
+}
+Response
+{
+    "exception": "com.gotravel.flightadminservice.exception.ValueNotFoundException",
+    "errorMessage": "Exception encountered in admin service - Admin not found",
+    "statusCode": 404
+}
+
+2. null username
+Request
+{
+    "username": null,
+    "password":"password1"
+}
+Response
+{
+    "exception": "com.gotravel.flightadminservice.exception.ValueNotFoundException",
+    "errorMessage": "Exception encountered in admin service - Admin not found",
+    "statusCode": 404
+}
+
+3.success
+Request
+{
+    "username": "admin1",
+    "password": "password1"
+}
+Response
+{
+    "adminId": 1,
+    "username": "admin1",
+    "password": "password1"
+}

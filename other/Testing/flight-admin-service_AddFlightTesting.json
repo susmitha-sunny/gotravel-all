@@ -1,0 +1,49 @@
+flight-admin-service : Add Flight Testing
+
+http://localhost:8080/flight-admin-service/addflight
+
+1. Success
+Request
+{
+    "airline": {
+        "airlineId": 6,
+        "airlineName": "Qatar Airways",
+        "iataCode": "QA",
+        "logo": null,
+        "airlineStatus": "ACTIVE"
+    },
+    "flightNumber": "Q007",
+    "businessSeatCount": 10,
+    "economySeatCount": 30,
+    "meal": "NONE"
+}
+Response
+{
+    "flightId": 12,
+    "airline": {
+        "airlineId": 6,
+        "airlineName": "Qatar Airways",
+        "iataCode": "QA",
+        "logo": null,
+        "airlineStatus": "ACTIVE"
+    },
+    "flightNumber": "Q007",
+    "businessSeatCount": 10,
+    "economySeatCount": 30,
+    "meal": "NONE"
+}
+
+2. Invalid Request
+Request
+{
+    "flightNumber": "Q007",
+    "businessSeatCount": 10,
+    "economySeatCount": 30,
+    "meal": "NONE"
+}
+Response
+{
+    "exception": "org.springframework.dao.DataIntegrityViolationException",
+    "errorMessage": "Exception encountered in admin service - could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement",
+    "statusCode": 404
+}

@@ -1,0 +1,33 @@
+flight-booking-service : Coupon Testing
+
+http://localhost:8080/flight-booking-service/coupon
+
+1. Coupon valid
+Request
+{
+    "code" : "SALE50",
+    "totalFare" : 1000
+}
+Response
+{
+    "coupon": {
+        "couponId": 3,
+        "code": "SALE50",
+        "discountPercent": 50
+    },
+    "totalFare": 1000,
+    "discountedTotalFare": 500.00
+}
+
+2. Invalid coupon
+Request
+{
+    "code" : "SALE",
+    "totalFare" : 1000
+}
+Response
+{
+    "exception": "com.gotravel.flightbookingservice.exception.ValueNotFoundException",
+    "errorMessage": "Exception encountered in booking service - No matching coupon found",
+    "statusCode": 404
+}
