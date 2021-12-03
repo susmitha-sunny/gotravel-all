@@ -1,0 +1,8 @@
+airline_id,airline_name,iata_code,airline_status
+1,"United Airlines",UA,ACTIVE
+2,Lufthansa,LH,ACTIVE
+3,Delta,DL,ACTIVE
+4,"British Airways",BA,ACTIVE
+5,Emirates,EK,ACTIVE
+6,"Qatar Airways",QR,INACTIVE
+7,"Alaska Airline",AS,ACTIVE

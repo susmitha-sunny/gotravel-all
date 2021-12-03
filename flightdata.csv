@@ -1,0 +1,13 @@
+flight_id,airline_id,flight_number,business_seat_count,economy_seat_count,meal
+1,1,U320,10,30,BOTH
+2,1,U113,10,90,NONE
+3,2,L435,20,60,VEG
+4,2,L001,10,30,BOTH
+5,3,D988,10,90,BOTH
+6,3,D333,20,60,NONE
+7,4,B044,10,30,BOTH
+8,4,B890,10,90,BOTH
+9,5,E147,20,60,NONE
+10,5,E355,10,30,BOTH
+11,6,Q222,10,30,BOTH
+12,6,Q007,10,30,NONE
